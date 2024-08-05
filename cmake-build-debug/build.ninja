@@ -73,6 +73,39 @@ build Sockets.exe: CXX_EXECUTABLE_LINKER__Sockets_Debug CMakeFiles/Sockets.dir/m
   TARGET_IMPLIB = libSockets.dll.a
   TARGET_PDB = Sockets.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target Sockets_client
+
+
+#############################################
+# Order-only phony target for Sockets_client
+
+build cmake_object_order_depends_target_Sockets_client: phony || CMakeFiles/Sockets_client.dir
+
+build CMakeFiles/Sockets_client.dir/client.cpp.obj: CXX_COMPILER__Sockets_client_Debug C$:/Users/kliker/CLionProjects/Sockets/client.cpp || cmake_object_order_depends_target_Sockets_client
+  DEP_FILE = CMakeFiles\Sockets_client.dir\client.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Sockets_client.dir
+  OBJECT_FILE_DIR = CMakeFiles\Sockets_client.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Sockets_client
+
+
+#############################################
+# Link the executable Sockets_client.exe
+
+build Sockets_client.exe: CXX_EXECUTABLE_LINKER__Sockets_client_Debug CMakeFiles/Sockets_client.dir/client.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lws2_32  -lwsock32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\Sockets_client.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Sockets_client.exe
+  TARGET_IMPLIB = libSockets_client.dll.a
+  TARGET_PDB = Sockets_client.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -101,6 +134,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build Sockets: phony Sockets.exe
 
+build Sockets_client: phony Sockets_client.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -109,7 +144,7 @@ build Sockets: phony Sockets.exe
 #############################################
 # Folder: C:/Users/kliker/CLionProjects/Sockets/cmake-build-debug
 
-build all: phony Sockets.exe
+build all: phony Sockets.exe Sockets_client.exe
 
 # =============================================================================
 # Built-in targets

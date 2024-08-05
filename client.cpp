@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h>
 #include <vector>
 #include "ServerSide.h"
 #include "ClientSide.h"
@@ -9,28 +10,32 @@
 using namespace std;
 
 
-[[noreturn]] void recvMessagesServer(Server* server){
+
+void recvMessagesClient(Client* client){
     vector <char> servBuff;
 
     while (true){
-        cout << server->recivePacket(servBuff, 0) << endl;
+        cout << client->recivePacket(servBuff) << endl;
     }
 }
 
-void sendMessages(Server* server){
-    vector <char> clientBuff;
-    char message[] = "";
+void sendMessages(Client* client){
+    vector <char> clientBuff {'a', 's'};
+    char* message;
     while (true){
-        cout << "Enter message: ";
-        cin >> message;
-
-        for (const int i : message){
-            clientBuff.push_back(i);
-        }
+//        cout << "Enter message: ";
+//        cin >> message;
+//        cout << endl;
+//
+//
+//        for (int i = 0; i < strlen(message); i++){
+//            clientBuff.push_back(message[i]);
+//        }
 
         cout << "Your (host) message: ";
         fgets(clientBuff.data(), clientBuff.size(), stdin);
-        server->sendPacket(clientBuff, 0);
+        cout << endl;
+        client->sendPacket(clientBuff);
 
         clientBuff.clear();
     }
@@ -49,10 +54,6 @@ int main() {
         server->createWsaStartup(2, 2);
         server->createSock();
         server->listenClients();
-
-        thread t (recvMessagesServer, server);
-        t.join();
-//        sendMessages(server);
     }
     else{
 
@@ -61,6 +62,10 @@ int main() {
         client->createWsaStartup(2, 2);
         client->createSock();
         client->connectToServer(ip, 1234);
+
+//        thread t (recvMessagesClient, client);
+
+        sendMessages(client);
     }
     return 0;
 }

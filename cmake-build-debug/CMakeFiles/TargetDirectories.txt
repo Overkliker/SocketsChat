@@ -1,3 +1,4 @@
 C:/Users/kliker/CLionProjects/Sockets/cmake-build-debug/CMakeFiles/Sockets.dir
+C:/Users/kliker/CLionProjects/Sockets/cmake-build-debug/CMakeFiles/Sockets_client.dir
 C:/Users/kliker/CLionProjects/Sockets/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/kliker/CLionProjects/Sockets/cmake-build-debug/CMakeFiles/rebuild_cache.dir
